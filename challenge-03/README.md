@@ -16,7 +16,7 @@ As propriedades e tipos de valores para cada propriedade desse objeto devem ser:
 - `andando` - Boolean - recebe "falso" por padrão
 - `caminhouQuantosMetros` - Number - recebe "zero" por padrão
 */
-var pessoa = {nome: 'Bianca', sobrenome: 'Santos', sexo: 'Feminino', idade: 23, altura: 1.69, peso: 69, andando: 'Falso', caminhouQuantosMetros: 0}
+var pessoa = {nome: 'Bianca', sobrenome: 'Santos', sexo: 'Feminino', idade: 23, altura: 1.69, peso: 69, andando: false, caminhouQuantosMetros: 0}
 
 /*
 Adicione um método ao objeto `pessoa` chamado `fazerAniversario`. O método deve
@@ -35,14 +35,14 @@ valor dessa propriedade a quantidade passada por parâmetro;
 - Ele deverá modificar o valor da propriedade `andando` para o valor
 booleano que representa "verdadeiro";
 */
-pessoa.andar = function(a) { pessoa.caminhouQuantosMetros = pessoa.caminhouQuantosMetros + a; 
-pessoa.andando = 'Verdadeiro'; }
+pessoa.andar = function(a) { pessoa.caminhouQuantosMetros += a; 
+pessoa.andando = true; }
 
 /*
 Adicione um método ao objeto `pessoa` chamado `parar`, que irá modificar o valor
 da propriedade `andando` para o valor booleano que representa "falso".
 */
-pessoa.parar = function() { pessoa.andando = 'Falso'; }
+pessoa.parar = function() { pessoa.andando = false; }
 
 /*
 Crie um método chamado `nomeCompleto`, que retorne a frase:
@@ -117,7 +117,7 @@ Quantos anos a `pessoa` tem agora? (Use a instrução para responder e
 comentários inline ao lado da instrução para mostrar qual foi a resposta
 retornada)
 */
-pessoa.idade; // 26
+pessoa.mostrarIdade(); // Olá, eu tenho 26 anos!
 
 /*
 Agora, faça a `pessoa` caminhar alguns metros, invocando o método `andar` 3x,
@@ -169,23 +169,24 @@ correta, de acordo com os dados inseridos no objeto.
 */
 pessoa.apresentacao = function() 
 { 
-	var a = 'a', ano = 'ano', metro = 'metro';
-    if (pessoa.sexo === 'Feminino' && pessoa.idade === 1 && pessoa.caminhouQuantosMetros === 1)
-    {
-        return 'Olá, eu sou ' + a + ' ' + pessoa.nome + ' ' + pessoa.sobrenome + ', tenho ' + pessoa.idade + ' ' + ano + ', ' + pessoa.altura + ', meu peso é ' + pessoa.peso + ' e, só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' ' + metro;
-    } 
-    else if (pessoa.sexo === 'Feminino' && pessoa.idade !== 1 && pessoa.caminhouQuantosMetros !== 1)
-    {
-        return 'Olá, eu sou ' + a + ' ' + pessoa.nome + ' ' + pessoa.sobrenome + ', tenho ' + pessoa.idade + ' anos, ' + pessoa.altura + ', meu peso é ' + pessoa.peso + ' e, só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' metros!';
-    } 
-    else if (pessoa.sexo !== 'Feminino' && pessoa.idade === 1 && pessoa.caminhouQuantosMetros === 1)    
-    {
-        return 'Olá, eu sou o ' + pessoa.nome + ' ' + pessoa.sobrenome + ', tenho ' + pessoa.idade + ' ' + ano + ', ' + pessoa.altura + ', meu peso é ' + pessoa.peso + ' e, só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' ' + metro;
-    }
-    else 
-    {
-        return 'Olá, eu sou o ' + pessoa.nome + ' ' + pessoa.sobrenome + ', tenho ' + pessoa.idade + ' anos, ' + pessoa.altura + ', meu peso é ' + pessoa.peso + ' e, só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' metros!';
-    }
+	var sexo = 'o';
+	var idadeAnos = 'anos';
+	var metrosCaminhados = 'metros';
+
+	if (pessoa.sexo === 'Feminino')
+	{
+		sexo = 'a';
+	}
+	if (pessoa.idade === 1)
+	{
+		idadeAnos = 'ano';
+	}
+	if (pessoa.caminhouQuantosMetros === 1)
+	{
+		metrosCaminhados = 'metro';
+	}
+
+	 return 'Olá, eu sou ' + sexo + ' ' pessoa.nome + ' ' + pessoa.sobrenome + ', tenho ' + pessoa.idade + ' ' + idadeAnos + ' '+ pessoa.altura + ', meu peso é ' + pessoa.peso + ' e, só hoje, eu já caminhei ' + pessoa.caminhouQuantosMetros + ' ' + metrosCaminhados + '!';
 }
 
 // Agora, apresente-se ;)
