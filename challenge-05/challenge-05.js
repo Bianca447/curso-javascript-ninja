@@ -37,7 +37,11 @@ var cinco = [2, undefined, 'Brasil', true, null];
 Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
-retornarValorIndice(console.log(cinco));
+console.log(retornarValorIndice(cinco, 0));
+console.log(retornarValorIndice(cinco, 1));
+console.log(retornarValorIndice(cinco, 2));
+console.log(retornarValorIndice(cinco, 3));
+console.log(retornarValorIndice(cinco, 4));
 
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
@@ -55,19 +59,18 @@ os livros.
 */
 function book(nomeLivro)
 {
-	var livro = nomeLivro;
-	var objeto = {['livro um']: {quantidadePaginas: 100, autor: 'Fernanda', editora: 'Saraiva'},
-	              ['livro dois']: {quantidadePaginas: 200, autor: 'Maria', editora: 'Abril Educação'},
-	              ['livro tres']: {quantidadePaginas: 300, autor: 'Carolina', editora: 'FTD'}};
-    return nomeLivro === undefined ? objeto : objeto[livro];	
+	var objeto = {'livro um': {quantidadePaginas: 100, autor: 'Fernanda', editora: 'Saraiva'},
+	              'livro dois': {quantidadePaginas: 200, autor: 'Maria', editora: 'Abril Educação'},
+	              'livro tres': {quantidadePaginas: 300, autor: 'Carolina', editora: 'FTD'}};
+    return nomeLivro === undefined ? objeto : objeto[nomeLivro];	
 }
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-book(); /* {['livro um']: {quantidadePaginas: 100, autor: 'Fernanda', editora: 'Saraiva'},
-	        ['livro dois']: {quantidadePaginas: 200, autor: 'Maria', editora: 'Abril Educação'},
-	        ['livro tres']: {quantidadePaginas: 300, autor: 'Carolina', editora: 'FTD'}}*/
+book(); /* {'livro um': {quantidadePaginas: 100, autor: 'Fernanda', editora: 'Saraiva'},
+	          'livro dois': {quantidadePaginas: 200, autor: 'Maria', editora: 'Abril Educação'},
+	          'livro tres': {quantidadePaginas: 300, autor: 'Carolina', editora: 'FTD'}}*/
 
 
 /*
@@ -75,7 +78,7 @@ Ainda com a função acima, imprima a quantidade de páginas de um livro qualque
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-console.log(' O livro ' + ['livro dois'] + ' tem ' + book(['livro dois']).quantidadePaginas + ' páginas!');
+console.log(' O livro ' + 'livro dois' + ' tem ' + book('livro dois').quantidadePaginas + ' páginas!');
 // O livro livro dois tem 200 páginas!
 
 /*
@@ -83,7 +86,7 @@ Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-console.log(' O autor do livro ' + ['livro dois'] + ' é ' + book(['livro dois']).autor);
+console.log(' O autor do livro ' + 'livro dois' + ' é ' + book('livro dois').autor);
 //O autor do livro livro dois é Maria
 
 /*
@@ -91,5 +94,5 @@ Ainda com a função acima, imprima o nome da editora de um livro qualquer, usan
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-console.log(' O livro ' + ['livro dois'] + ' foi publicado pela editora ' + book(['livro dois']).editora);
+console.log(' O livro ' + 'livro dois' + ' foi publicado pela editora ' + book('livro dois').editora);
 // O livro livro dois foi publicado pela editora Abril Educação
